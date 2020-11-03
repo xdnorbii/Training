@@ -5,6 +5,6 @@ const colors = {
   turquoise: '#46D0D9',
   zircon: '#F8FBFF',
   chathamsBlue: '#13497B',
-  black: '#000000'
+  black: '#000000',
 };
 export default colors;
