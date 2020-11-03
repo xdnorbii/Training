@@ -1,5 +1,5 @@
-import { StyleSheet, Dimensions } from 'react-native';
-import { metrics, colors } from '../../../core/themes/';
+import {StyleSheet, Dimensions} from 'react-native';
+import {metrics, colors} from '../../../core/themes/';
 
 export default StyleSheet.create({
   root: {
@@ -8,7 +8,7 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   scrollView: {
-    width: '100%'
+    width: '100%',
   },
   search: {
     // width: 50,
@@ -44,7 +44,7 @@ export default StyleSheet.create({
       ) / 2,
     backgroundColor: colors.zircon,
     borderRadius: metrics.size76,
-    transform: [{ rotate: '45deg' }],
+    transform: [{rotate: '45deg'}],
   },
   containerOutter: {
     flex: metrics.size1,
@@ -63,7 +63,7 @@ export default StyleSheet.create({
         (Dimensions.get('window').width * Dimensions.get('window').width) / 2,
       ) +
         120) /
-      2 -
+        2 -
       137
     ),
   },

@@ -1,11 +1,5 @@
 import React, {useState} from 'react';
-import {
-  View,
-  Image,
-  Text,
-  SafeAreaView,
-  ScrollView,
-} from 'react-native';
+import {View, Image, Text, SafeAreaView, ScrollView} from 'react-native';
 import {connect} from 'react-redux';
 import {LOGIN_SAGA} from './redux';
 import {FieldInput} from '../../core/components';

@@ -8,6 +8,6 @@ const colors = {
   black: '#000000',
   gallery: '#F0F0F0',
   linkWater: '#F4F8FC',
-  blueZodiac: '#143656'
+  blueZodiac: '#143656',
 };
 export default colors;

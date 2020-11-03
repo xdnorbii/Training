@@ -1,5 +1,5 @@
-import { StyleSheet, Dimensions } from 'react-native';
-import { metrics, colors } from '../../../core/themes';
+import {StyleSheet, Dimensions} from 'react-native';
+import {metrics, colors} from '../../../core/themes';
 
 export default StyleSheet.create({
   root: {
@@ -16,7 +16,7 @@ export default StyleSheet.create({
   userView: {
     width: '100%',
     justifyContent: 'space-evenly',
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   userImage: {
     height: metrics.size75,
@@ -31,7 +31,7 @@ export default StyleSheet.create({
   },
   nameText: {
     fontSize: metrics.size20,
-    fontWeight: "500",
+    fontWeight: '500',
     lineHeight: metrics.size23,
     color: colors.chathamsBlue,
     marginBottom: metrics.size5,
@@ -41,10 +41,10 @@ export default StyleSheet.create({
     fontWeight: '300',
     lineHeight: metrics.size13,
     color: colors.chathamsBlue,
-    marginLeft: metrics.size4
+    marginLeft: metrics.size4,
   },
   row: {
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   nrVotes: {
     fontSize: metrics.size12,
@@ -62,53 +62,53 @@ export default StyleSheet.create({
   },
   findHomeView: {
     marginLeft: metrics.size18,
-    marginTop: metrics.size32
+    marginTop: metrics.size32,
   },
   findHomeText: {
     fontSize: metrics.size20,
     lineHeight: metrics.size24,
     fontWeight: '500',
-    color: colors.blueZodiac
+    color: colors.blueZodiac,
   },
   findHomeScrollView: {
     marginTop: metrics.size8,
-    marginBottom: metrics.size24
+    marginBottom: metrics.size24,
   },
   findHomeCard: {
     backgroundColor: colors.white,
     height: metrics.size125,
     width: metrics.size230,
     borderRadius: metrics.size10,
-    shadowColor: "#000",
+    shadowColor: '#000',
     shadowOffset: {
       width: metrics.size0,
       height: metrics.size1,
     },
-    shadowOpacity: 0.20,
+    shadowOpacity: 0.2,
     shadowRadius: 1.41,
     elevation: metrics.size2,
     marginRight: metrics.size15,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   findHomeCardTitle: {
     marginBottom: metrics.size8,
     fontSize: metrics.size12,
     lineHeight: metrics.size14,
     fontWeight: '500',
-    color: colors.blueZodiac
+    color: colors.blueZodiac,
   },
   spaceEvenly: {
-    justifyContent: 'space-evenly'
+    justifyContent: 'space-evenly',
   },
   roomIcon: {
-    marginRight: metrics.size4
+    marginRight: metrics.size4,
   },
   chartIcon: {
-    marginLeft: metrics.size26
+    marginLeft: metrics.size26,
   },
   dollarIcon: {
-    marginRight: metrics.size11
+    marginRight: metrics.size11,
   },
   chartDataRow: {
     flexDirection: 'row',
@@ -119,18 +119,18 @@ export default StyleSheet.create({
     fontSize: metrics.size8,
     lineHeight: metrics.size10,
     fontWeight: '300',
-    marginTop: metrics.size10
+    marginTop: metrics.size10,
   },
   findHomeCardInner: {
-    padding: metrics.size17
+    padding: metrics.size17,
   },
   cardImage: {
-    borderRadius: metrics.size20
+    borderRadius: metrics.size20,
   },
   cardContent: {
     height: metrics.size400,
     justifyContent: 'space-between',
-    margin: metrics.size20
+    margin: metrics.size20,
   },
   cardLocation: {
     height: metrics.size26,
@@ -140,7 +140,7 @@ export default StyleSheet.create({
     margin: metrics.size26,
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   cardDetailsContainer: {
     width: '100%',
@@ -148,29 +148,29 @@ export default StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: metrics.size20,
     paddingVertical: metrics.size15,
-    paddingHorizontal: metrics.size27
+    paddingHorizontal: metrics.size27,
   },
   cardDetailsTitle: {
     marginBottom: metrics.size9,
     fontSize: metrics.size20,
-    color: colors.blueZodiac
+    color: colors.blueZodiac,
   },
   cardDetailsUserPic: {
     borderRadius: metrics.size30,
     height: metrics.size30,
-    width: metrics.size30
+    width: metrics.size30,
   },
   priceLabel: {
     fontSize: metrics.size20,
     lineHeight: metrics.size24,
     color: colors.blueZodiac,
-    fontWeight: '500'
+    fontWeight: '500',
   },
   postText: {
     fontSize: metrics.size20,
     lineHeight: metrics.size24,
     fontWeight: '500',
     color: colors.blueZodiac,
-    marginLeft: metrics.size20
+    marginLeft: metrics.size20,
   },
 });
