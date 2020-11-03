@@ -165,5 +165,12 @@ export default StyleSheet.create({
     lineHeight: metrics.size24,
     color: colors.blueZodiac,
     fontWeight: '500'
-  }
+  },
+  postText: {
+    fontSize: metrics.size20,
+    lineHeight: metrics.size24,
+    fontWeight: '500',
+    color: colors.blueZodiac,
+    marginLeft: metrics.size20
+  },
 });

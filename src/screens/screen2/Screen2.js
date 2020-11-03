@@ -95,7 +95,7 @@ const Screen2 = ({ login, message, isFetchingToken }) => {
           </View>
 
           <View style={Screen2Styles.postsContainer}>
-            <Text style={Screen2Styles.findHomeCardTitle}>Post</Text>
+          <Text style={Screen2Styles.postText}>Post</Text>
             {Array(4).fill(0).map(()=>(
               <ImageBackground imageStyle={Screen2Styles.cardImage} source={post1} style={Screen2Styles.cardContent}>
               <View style={Screen2Styles.cardLocation}>
@@ -106,7 +106,7 @@ const Screen2 = ({ login, message, isFetchingToken }) => {
                 <Text style={Screen2Styles.cardDetailsTitle}>Special House mix</Text>
                 <View style={[Screen2Styles.row, { justifyContent: 'space-between' }]}>
                   <View>
-                    <View style={Screen2Styles.row}>
+                    <View style={[Screen2Styles.row,{alignItems:'center'}]}>
                       <Image source={userPic} style={Screen2Styles.cardDetailsUserPic} />
                       <Text>Timmy bremor</Text>
                     </View>
