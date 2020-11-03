@@ -26,18 +26,18 @@ const renderStars = (votes) => {
   )
 }
 
-const renderRooms = (nrBedrooms, nrBathrooms, nrKitchens) =>(
-  <View style={[Screen2Styles.row, {justifyContent:'space-between', alignItems:'center'}]}>
-    <View style={Screen2Styles.row}>
-      <Image source={bedrooms}/>
+const renderRooms = (nrBedrooms, nrBathrooms, nrKitchens) => (
+  <View style={[Screen2Styles.row, { justifyContent: 'space-between', alignItems: 'center' }]}>
+    <View style={[Screen2Styles.row,{alignItems:'center'}]}>
+      <Image source={bedrooms} />
       <Text>{nrBedrooms}</Text>
     </View>
-    <View style={Screen2Styles.row}>
-      <Image source={bathrooms}/>
+    <View style={[Screen2Styles.row,{alignItems:'center'}]}>
+      <Image source={bathrooms} />
       <Text>{nrBathrooms}</Text>
     </View>
-    <View style={Screen2Styles.row}>
-      <Image source={kitchens}/>
+    <View style={[Screen2Styles.row,{alignItems:'center'}]}>
+      <Image source={kitchens} />
       <Text>{nrKitchens}</Text>
     </View>
   </View>
@@ -72,16 +72,17 @@ const Screen2 = ({ login, message, isFetchingToken }) => {
                 <View style={[Screen2Styles.row, Screen2Styles.spaceEvenly]}>
                   <Image source={chart} height={62} style={{ marginLeft: 26 }} />
                   <View style={Screen2Styles.spaceEvenly}>
-                    <View style={[Screen2Styles.row, { marginLeft: 28 }]}>
-                      <Image source={dollar} height={16} />
+                    <View style={[Screen2Styles.row, { marginLeft: 28,width:'50%' }]}>
+                      <Image source={dollar} height={16} style={{ marginRight: 11 }} />
                       <Text style={{ flexWrap: 'wrap' }}>10 sales Complete</Text>
                     </View>
                     <View style={[Screen2Styles.row, { flexWrap: 'wrap', marginLeft: 28 }]}>
-                      <Image source={client} height={16} />
+                      <Image source={client} height={16} style={{ marginRight: 11 }} />
                       <Text>09 clients</Text>
                     </View>
                   </View>
                 </View>
+                <Text style={{color:'#46D0D9', fontSize:8, lineHeight:10, fontWeight:'300'}}>View more info</Text>
               </View>
               <View style={Screen2Styles.findHomeCard}>
                 <View style={{ padding: 17 }}>
@@ -95,15 +96,16 @@ const Screen2 = ({ login, message, isFetchingToken }) => {
           </View>
 
           <View style={Screen2Styles.postsContainer}>
-            <Text style={{fontSize:20,lineHeight:23,color:'#143656', marginLeft:20}}>Post</Text>
-            <ImageBackground imageStyle={{ borderRadius: 20 }} source={post1} style={{ height: 400, justifyContent: 'space-between', margin: 20 }}>
+            <Text style={{ fontSize: 20, lineHeight: 23, color: '#143656', marginLeft: 20 }}>Post</Text>
+            {Array(4).fill(0).map(()=>(
+              <ImageBackground imageStyle={{ borderRadius: 20 }} source={post1} style={{ height: 400, justifyContent: 'space-between', margin: 20 }}>
               <View style={{ height: 26, backgroundColor: 'rgba(255, 255, 255, 0.66)', borderRadius: 50, width: 130, margin: 26, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
                 <Image source={locationPin} height={13} />
                 <Text>Los Angeles, CA</Text>
               </View>
-              <View style={{ width: '100%', height: 103, backgroundColor: 'white', borderRadius: 20, paddingVertical:15, paddingHorizontal:27 }}>
-                <Text style={{marginBottom:9, fontSize:20, color:'#143656'}}>Special House mix</Text>
-                <View style={[Screen2Styles.row,{justifyContent:'space-between'}]}>
+              <View style={{ width: '100%', height: 103, backgroundColor: 'white', borderRadius: 20, paddingVertical: 15, paddingHorizontal: 27 }}>
+                <Text style={{ marginBottom: 9, fontSize: 20, color: '#143656' }}>Special House mix</Text>
+                <View style={[Screen2Styles.row, { justifyContent: 'space-between' }]}>
                   <View>
                     <View style={Screen2Styles.row}>
                       <Image source={userPic} style={{ borderRadius: 30, height: 30, width: 30 }} />
@@ -113,39 +115,15 @@ const Screen2 = ({ login, message, isFetchingToken }) => {
                   </View>
                   <View>
                     <View>
-                      <Text>$1500 usd</Text>
-                      {renderRooms(2,1,1)}
+                      <Text style={{fontSize:20, lineHeight:24, color:'#143656', fontWeight:'500'}}>$1500 usd</Text>
+                      {renderRooms(2, 1, 1)}
                     </View>
                   </View>
                 </View>
               </View>
             </ImageBackground>
+            ))}
           </View>
-
-            <ImageBackground imageStyle={{ borderRadius: 20 }} source={post1} style={{ height: 400, justifyContent: 'space-between', margin: 20 }}>
-              <View style={{ height: 26, backgroundColor: 'rgba(255, 255, 255, 0.66)', borderRadius: 50, width: 130, margin: 26, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                <Image source={locationPin} height={13} />
-                <Text>Los Angeles, CA</Text>
-              </View>
-              <View style={{ width: '100%', height: 103, backgroundColor: 'white', borderRadius: 20, paddingVertical:15, paddingHorizontal:27 }}>
-                <Text style={{marginBottom:9, fontSize:20, color:'#143656'}}>Special House mix</Text>
-                <View style={[Screen2Styles.row,{justifyContent:'space-between'}]}>
-                  <View>
-                    <View style={Screen2Styles.row}>
-                      <Image source={userPic} style={{ borderRadius: 30, height: 30, width: 30 }} />
-                      <Text>Timmy bremor</Text>
-                    </View>
-                    {renderStars(10)}
-                  </View>
-                  <View>
-                    <View>
-                      <Text>$1500 usd</Text>
-                      {renderRooms(2,1,1)}
-                    </View>
-                  </View>
-                </View>
-              </View>
-            </ImageBackground>
 
         </View>
       </ScrollView>
