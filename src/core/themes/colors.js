@@ -6,5 +6,8 @@ const colors = {
   zircon: '#F8FBFF',
   chathamsBlue: '#13497B',
   black: '#000000',
+  gallery: '#F0F0F0',
+  linkWater: '#F4F8FC',
+  blueZodiac: '#143656'
 };
 export default colors;

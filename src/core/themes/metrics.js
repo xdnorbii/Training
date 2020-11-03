@@ -104,6 +104,7 @@ const metrics = {
   size195: 195,
   size200: 200,
   size214: 214,
+  size230: 230,
   size235: 235,
   size280: 280,
   size290: 290,
