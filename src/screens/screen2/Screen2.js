@@ -55,7 +55,7 @@ const Screen2 = ({ login, message, isFetchingToken }) => {
             <View>
               {renderStars(10)}
             </View>
-            <View style={Screen2Styles.row}>
+            <View style={[Screen2Styles.row,{width:100}]}>
               <Image source={locationPin} height={20} />
               <Text style={Screen2Styles.locationText}>Los Angeles</Text>
             </View>
@@ -100,7 +100,7 @@ const Screen2 = ({ login, message, isFetchingToken }) => {
               <ImageBackground imageStyle={Screen2Styles.cardImage} source={post1} style={Screen2Styles.cardContent}>
               <View style={Screen2Styles.cardLocation}>
                 <Image source={locationPin} height={13} />
-                <Text>Los Angeles, CA</Text>
+                <Text style={Screen2Styles.locationText}>Los Angeles, CA</Text>
               </View>
               <View style={Screen2Styles.cardDetailsContainer}>
                 <Text style={Screen2Styles.cardDetailsTitle}>Special House mix</Text>

@@ -41,6 +41,7 @@ export default StyleSheet.create({
     fontWeight: '300',
     lineHeight: metrics.size13,
     color: colors.chathamsBlue,
+    marginLeft: metrics.size4
   },
   row: {
     flexDirection: 'row'
@@ -114,10 +115,11 @@ export default StyleSheet.create({
     marginLeft: metrics.size28,
   },
   viewMoreInfoButton: {
-    color: '#46D0D9',
+    color: colors.turquoise,
     fontSize: metrics.size8,
     lineHeight: metrics.size10,
-    fontWeight: '300'
+    fontWeight: '300',
+    marginTop: metrics.size10
   },
   findHomeCardInner: {
     padding: metrics.size17
@@ -151,7 +153,7 @@ export default StyleSheet.create({
   cardDetailsTitle: {
     marginBottom: metrics.size9,
     fontSize: metrics.size20,
-    color: '#143656'
+    color: colors.blueZodiac
   },
   cardDetailsUserPic: {
     borderRadius: metrics.size30,
@@ -161,7 +163,7 @@ export default StyleSheet.create({
   priceLabel: {
     fontSize: metrics.size20,
     lineHeight: metrics.size24,
-    color: '#143656',
+    color: colors.blueZodiac,
     fontWeight: '500'
   }
 });
