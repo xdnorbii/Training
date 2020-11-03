@@ -4,7 +4,6 @@ import {
   Image,
   Text,
   SafeAreaView,
-  ScrollView,
   ImageBackground
 } from 'react-native';
 import { connect } from 'react-redux';
@@ -12,7 +11,7 @@ import { LOGIN_SAGA } from './redux';
 import { FieldInput } from '../../core/components';
 import { userPic, locationPin, fullStar, emptyStar, back, chart, client, dollar, post1, bedrooms, kitchens, bathrooms } from '../../core/themes';
 import { Screen2Styles } from './styles';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { TouchableOpacity,ScrollView } from 'react-native-gesture-handler';
 
 const renderStars = (votes) => {
   return (
@@ -29,15 +28,15 @@ const renderStars = (votes) => {
 const renderRooms = (nrBedrooms, nrBathrooms, nrKitchens) => (
   <View style={[Screen2Styles.row, { justifyContent: 'space-between', alignItems: 'center' }]}>
     <View style={[Screen2Styles.row,{alignItems:'center'}]}>
-      <Image source={bedrooms} />
+      <Image source={bedrooms} style={Screen2Styles.roomIcon} />
       <Text>{nrBedrooms}</Text>
     </View>
     <View style={[Screen2Styles.row,{alignItems:'center'}]}>
-      <Image source={bathrooms} />
+      <Image source={bathrooms} style={Screen2Styles.roomIcon} />
       <Text>{nrBathrooms}</Text>
     </View>
     <View style={[Screen2Styles.row,{alignItems:'center'}]}>
-      <Image source={kitchens} />
+      <Image source={kitchens} style={Screen2Styles.roomIcon} />
       <Text>{nrKitchens}</Text>
     </View>
   </View>
@@ -70,25 +69,25 @@ const Screen2 = ({ login, message, isFetchingToken }) => {
               <View style={Screen2Styles.findHomeCard}>
                 <Text style={Screen2Styles.findHomeCardTitle}>Estadistics</Text>
                 <View style={[Screen2Styles.row, Screen2Styles.spaceEvenly]}>
-                  <Image source={chart} height={62} style={{ marginLeft: 26 }} />
+                  <Image source={chart} height={62} style={Screen2Styles.chartIcon} />
                   <View style={Screen2Styles.spaceEvenly}>
-                    <View style={[Screen2Styles.row, { marginLeft: 28,width:'50%' }]}>
-                      <Image source={dollar} height={16} style={{ marginRight: 11 }} />
-                      <Text style={{ flexWrap: 'wrap' }}>10 sales Complete</Text>
+                    <View style={[Screen2Styles.chartDataRow,{width:'50%' }]}>
+                      <Image source={dollar} height={16} style={Screen2Styles.dollarIcon} />
+                      <Text>10 sales Complete</Text>
                     </View>
-                    <View style={[Screen2Styles.row, { flexWrap: 'wrap', marginLeft: 28 }]}>
-                      <Image source={client} height={16} style={{ marginRight: 11 }} />
+                    <View style={Screen2Styles.chartDataRow}>
+                      <Image source={client} height={16} style={Screen2Styles.dollarIcon} />
                       <Text>09 clients</Text>
                     </View>
                   </View>
                 </View>
-                <Text style={{color:'#46D0D9', fontSize:8, lineHeight:10, fontWeight:'300'}}>View more info</Text>
+                <Text style={Screen2Styles.viewMoreInfoButton}>View more info</Text>
               </View>
               <View style={Screen2Styles.findHomeCard}>
-                <View style={{ padding: 17 }}>
+                <View style={Screen2Styles.findHomeCardInner}>
                   <Text style={Screen2Styles.findHomeCardTitle}>Information</Text>
                   <ScrollView>
-                    <Text style={{ flexWrap: 'wrap' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus condimentum nulla diam proin quis commodo malesuada. Dolor morbi egestas consectetur egestas aliquam tellus. Accumsan tristique consequat nec cras commodo et orci ipsum.</Text>
+                    <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus condimentum nulla diam proin quis commodo malesuada. Dolor morbi egestas consectetur egestas aliquam tellus. Accumsan tristique consequat nec cras commodo et orci ipsum.</Text>
                   </ScrollView>
                 </View>
               </View>
@@ -96,26 +95,26 @@ const Screen2 = ({ login, message, isFetchingToken }) => {
           </View>
 
           <View style={Screen2Styles.postsContainer}>
-            <Text style={{ fontSize: 20, lineHeight: 23, color: '#143656', marginLeft: 20 }}>Post</Text>
+            <Text style={Screen2Styles.findHomeCardTitle}>Post</Text>
             {Array(4).fill(0).map(()=>(
-              <ImageBackground imageStyle={{ borderRadius: 20 }} source={post1} style={{ height: 400, justifyContent: 'space-between', margin: 20 }}>
-              <View style={{ height: 26, backgroundColor: 'rgba(255, 255, 255, 0.66)', borderRadius: 50, width: 130, margin: 26, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+              <ImageBackground imageStyle={Screen2Styles.cardImage} source={post1} style={Screen2Styles.cardContent}>
+              <View style={Screen2Styles.cardLocation}>
                 <Image source={locationPin} height={13} />
                 <Text>Los Angeles, CA</Text>
               </View>
-              <View style={{ width: '100%', height: 103, backgroundColor: 'white', borderRadius: 20, paddingVertical: 15, paddingHorizontal: 27 }}>
-                <Text style={{ marginBottom: 9, fontSize: 20, color: '#143656' }}>Special House mix</Text>
+              <View style={Screen2Styles.cardDetailsContainer}>
+                <Text style={Screen2Styles.cardDetailsTitle}>Special House mix</Text>
                 <View style={[Screen2Styles.row, { justifyContent: 'space-between' }]}>
                   <View>
                     <View style={Screen2Styles.row}>
-                      <Image source={userPic} style={{ borderRadius: 30, height: 30, width: 30 }} />
+                      <Image source={userPic} style={Screen2Styles.cardDetailsUserPic} />
                       <Text>Timmy bremor</Text>
                     </View>
                     {renderStars(10)}
                   </View>
                   <View>
                     <View>
-                      <Text style={{fontSize:20, lineHeight:24, color:'#143656', fontWeight:'500'}}>$1500 usd</Text>
+                      <Text style={Screen2Styles.priceLabel}>$1500 usd</Text>
                       {renderRooms(2, 1, 1)}
                     </View>
                   </View>

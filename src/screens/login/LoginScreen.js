@@ -20,7 +20,7 @@ const LoginScreen = ({login, message, isFetchingToken}) => {
   return (
     <SafeAreaView style={LoginScreenStyles.root}>
       <ScrollView
-        style={{width: '100%'}}
+        style={LoginScreenStyles.scrollView}
         contentContainerStyle={LoginScreenStyles.content}>
         <View style={LoginScreenStyles.searchContainer}>
           <Image source={search} style={LoginScreenStyles.search} />

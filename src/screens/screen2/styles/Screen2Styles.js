@@ -6,8 +6,8 @@ export default StyleSheet.create({
     flex: metrics.size1,
     backgroundColor: colors.white,
   },
-  rootScroll:{
-    flex: 1,
+  rootScroll: {
+    flex: metrics.size1,
   },
   backButton: {
     marginTop: metrics.size30,
@@ -30,9 +30,9 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   nameText: {
-    fontSize: 20,
+    fontSize: metrics.size20,
     fontWeight: "500",
-    lineHeight: 23,
+    lineHeight: metrics.size23,
     color: colors.chathamsBlue,
     marginBottom: metrics.size5,
   },
@@ -46,18 +46,18 @@ export default StyleSheet.create({
     flexDirection: 'row'
   },
   nrVotes: {
-    fontSize: 12,
-    lineHeight: 14,
+    fontSize: metrics.size12,
+    lineHeight: metrics.size14,
     color: colors.gallery,
     marginBottom: metrics.size10,
   },
   contentContainer: {
     width: '100%',
     backgroundColor: colors.linkWater,
-    borderTopRightRadius: 32,
-    borderTopLeftRadius: 32,
-    borderBottomRightRadius: 20,
-    borderBottomLeftRadius: 20,
+    borderTopRightRadius: metrics.size32,
+    borderTopLeftRadius: metrics.size32,
+    borderBottomRightRadius: metrics.size20,
+    borderBottomLeftRadius: metrics.size20,
   },
   findHomeView: {
     marginLeft: metrics.size18,
@@ -80,24 +80,88 @@ export default StyleSheet.create({
     borderRadius: metrics.size10,
     shadowColor: "#000",
     shadowOffset: {
-      width: 0,
-      height: 1,
+      width: metrics.size0,
+      height: metrics.size1,
     },
     shadowOpacity: 0.20,
     shadowRadius: 1.41,
-    elevation: 2,
+    elevation: metrics.size2,
     marginRight: metrics.size15,
     justifyContent: 'center',
     alignItems: 'center'
   },
-  findHomeCardTitle:{
+  findHomeCardTitle: {
     marginBottom: metrics.size8,
     fontSize: metrics.size12,
     lineHeight: metrics.size14,
     fontWeight: '500',
     color: colors.blueZodiac
   },
-  spaceEvenly:{
-    justifyContent:'space-evenly'
+  spaceEvenly: {
+    justifyContent: 'space-evenly'
+  },
+  roomIcon: {
+    marginRight: metrics.size4
+  },
+  chartIcon: {
+    marginLeft: metrics.size26
+  },
+  dollarIcon: {
+    marginRight: metrics.size11
+  },
+  chartDataRow: {
+    flexDirection: 'row',
+    marginLeft: metrics.size28,
+  },
+  viewMoreInfoButton: {
+    color: '#46D0D9',
+    fontSize: metrics.size8,
+    lineHeight: metrics.size10,
+    fontWeight: '300'
+  },
+  findHomeCardInner: {
+    padding: metrics.size17
+  },
+  cardImage: {
+    borderRadius: metrics.size20
+  },
+  cardContent: {
+    height: metrics.size400,
+    justifyContent: 'space-between',
+    margin: metrics.size20
+  },
+  cardLocation: {
+    height: metrics.size26,
+    backgroundColor: 'rgba(255, 255, 255, 0.66)',
+    borderRadius: metrics.size50,
+    width: metrics.size130,
+    margin: metrics.size26,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  cardDetailsContainer: {
+    width: '100%',
+    height: metrics.size103,
+    backgroundColor: 'white',
+    borderRadius: metrics.size20,
+    paddingVertical: metrics.size15,
+    paddingHorizontal: metrics.size27
+  },
+  cardDetailsTitle: {
+    marginBottom: metrics.size9,
+    fontSize: metrics.size20,
+    color: '#143656'
+  },
+  cardDetailsUserPic: {
+    borderRadius: metrics.size30,
+    height: metrics.size30,
+    width: metrics.size30
+  },
+  priceLabel: {
+    fontSize: metrics.size20,
+    lineHeight: metrics.size24,
+    color: '#143656',
+    fontWeight: '500'
   }
 });

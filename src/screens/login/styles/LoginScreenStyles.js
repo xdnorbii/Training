@@ -1,11 +1,14 @@
-import {StyleSheet, Dimensions} from 'react-native';
-import {metrics, colors} from '../../../core/themes/';
+import { StyleSheet, Dimensions } from 'react-native';
+import { metrics, colors } from '../../../core/themes/';
 
 export default StyleSheet.create({
   root: {
     flex: metrics.size1,
     backgroundColor: colors.turquoise,
     alignItems: 'center',
+  },
+  scrollView: {
+    width: '100%'
   },
   search: {
     // width: 50,
@@ -41,10 +44,10 @@ export default StyleSheet.create({
       ) / 2,
     backgroundColor: colors.zircon,
     borderRadius: metrics.size76,
-    transform: [{rotate: '45deg'}],
+    transform: [{ rotate: '45deg' }],
   },
   containerOutter: {
-    flex: 1,
+    flex: metrics.size1,
     width: '100%',
     alignItems: 'center',
     backgroundColor: colors.zircon,
@@ -53,14 +56,14 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   containerInner: {
-    flex: 1,
+    flex: metrics.size1,
     alignItems: 'center',
     top: -(
       (Math.sqrt(
         (Dimensions.get('window').width * Dimensions.get('window').width) / 2,
       ) +
         120) /
-        2 -
+      2 -
       137
     ),
   },
@@ -74,12 +77,12 @@ export default StyleSheet.create({
   subHeaderText: {
     fontFamily: 'Rubik',
     fontWeight: '300',
-    fontSize: 20,
-    lineHeight: 24,
+    fontSize: metrics.size20,
+    lineHeight: metrics.size24,
     opacity: 0.3,
   },
   inputsContainer: {
-    flex: 1,
+    flex: metrics.size1,
     width: '100%',
     marginTop: metrics.size47,
   },
@@ -93,12 +96,12 @@ export default StyleSheet.create({
     borderRadius: metrics.size10,
     shadowColor: '#000',
     shadowOffset: {
-      width: 0,
-      height: 1,
+      width: metrics.size0,
+      height: metrics.size1,
     },
     shadowOpacity: 0.2,
     shadowRadius: 1.41,
-    elevation: 2,
+    elevation: metrics.size2,
   },
   loginButtonText: {
     color: colors.white,
@@ -111,15 +114,15 @@ export default StyleSheet.create({
   forgotPassword: {
     fontFamily: 'Rubik',
     fontWeight: '300',
-    fontSize: 14,
-    lineHeight: 16,
+    fontSize: metrics.size14,
+    lineHeight: metrics.size16,
     color: '#00000080',
   },
   createAccount: {
     fontFamily: 'Rubik',
     fontWeight: '300',
-    fontSize: 14,
-    lineHeight: 16,
+    fontSize: metrics.size14,
+    lineHeight: metrics.size16,
     color: colors.chathamsBlue,
   },
 });
