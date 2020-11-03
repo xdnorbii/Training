@@ -7,7 +7,7 @@ import {search, ok, see} from '../../core/themes';
 import {LoginScreenStyles} from './styles';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
-const LoginScreen = ({login, message, isFetchingToken}) => {
+const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [hidePassword, setHidePassword] = useState(true);

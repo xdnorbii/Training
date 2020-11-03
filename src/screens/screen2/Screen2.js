@@ -1,8 +1,7 @@
-import React, {useState} from 'react';
+import React, {} from 'react';
 import {View, Image, Text, SafeAreaView, ImageBackground} from 'react-native';
 import {connect} from 'react-redux';
 import {LOGIN_SAGA} from './redux';
-import {FieldInput} from '../../core/components';
 import {
   userPic,
   locationPin,
@@ -55,7 +54,7 @@ const renderRooms = (nrBedrooms, nrBathrooms, nrKitchens) => (
   </View>
 );
 
-const Screen2 = ({login, message, isFetchingToken}) => {
+const Screen2 = () => {
   return (
     <SafeAreaView style={Screen2Styles.root}>
       <ScrollView style={Screen2Styles.rootScroll}>
