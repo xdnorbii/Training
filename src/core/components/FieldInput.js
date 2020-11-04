@@ -1,8 +1,7 @@
 import React from 'react';
 import {View, Text, TextInput, TouchableOpacity, Image} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import {FieldInputStyles} from './styles';
-import {colors, metrics} from '../themes';
+import {colors} from '../themes';
 
 const FieldInput = ({
   placeholder,

@@ -1,9 +1,12 @@
-import React, {} from 'react';
-import {View, Image, Text, SafeAreaView, ImageBackground} from 'react-native';
-import {connect} from 'react-redux';
-import {LOGIN_SAGA} from './redux';
+import React, { } from 'react';
+import { View, Image, Text, SafeAreaView, ImageBackground } from 'react-native';
+import { connect } from 'react-redux';
+import { LOGIN_SAGA } from './redux';
 import {
   userPic,
+  userPic2,
+  userPic3,
+  userPic4,
   locationPin,
   fullStar,
   emptyStar,
@@ -12,74 +15,143 @@ import {
   client,
   dollar,
   post1,
-  bedrooms,
-  kitchens,
-  bathrooms,
+  post2,
+  post3,
+  post4,
+  strings
 } from '../../core/themes';
-import {Screen2Styles} from './styles';
-import {TouchableOpacity, ScrollView} from 'react-native-gesture-handler';
+import { Screen2Styles } from './styles';
+import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
+import Card from '../../core/components/Card';
 
-const renderStars = votes => {
+const currentUser = {
+  name: "Timmy bremor",
+  image: userPic,
+  stars: 4,
+  location: "Los Angeles",
+  reviews: 10
+}
+
+const mockData = [
+  {
+    location: 'Los Angeles, CA',
+    image: post1,
+    name: "Special House mix 1",
+    price: '$1000',
+    reviews: 10,
+    rooms: {
+      bedrooms: 2,
+      bathrooms: 2,
+      kitchens: 2
+    },
+    user: {
+      name: "Timmy bremor",
+      image: userPic,
+      stars: 2
+    }
+
+  },
+  {
+    location: 'Los Angeles, CA',
+    image: post2,
+    name: "Special House mix 2",
+    price: '$1500',
+    reviews: 10,
+    rooms: {
+      bedrooms: 2,
+      bathrooms: 1,
+      kitchens: 1
+    },
+    user: {
+      name: "Mike Smith",
+      image: userPic2,
+      stars: 4
+    }
+
+  },
+  {
+    location: 'Los Angeles, CA',
+    image: post3,
+    name: "Special House mix 3",
+    price: '$1800',
+    reviews: 10,
+    rooms: {
+      bedrooms: 3,
+      bathrooms: 2,
+      kitchens: 1
+    },
+    user: {
+      name: "Barbara bremor",
+      image: userPic3,
+      stars: 4
+    }
+
+  },
+  {
+    location: 'Los Angeles, CA',
+    image: post4,
+    name: "Special House mix 4",
+    price: '$2500',
+    reviews: 10,
+    rooms: {
+      bedrooms: 5,
+      bathrooms: 2,
+      kitchens: 1
+    },
+    user: {
+      name: "Kim Jhung Ea",
+      image: userPic4,
+      reviews: 10,
+      stars: 4
+    }
+
+  }
+]
+
+const renderStars = (nrStars, votes) => {
   return (
     <View style={Screen2Styles.row}>
-      {Array(4)
+      {Array(nrStars)
         .fill(0)
         .map(() => (
           <Image source={fullStar} height={19} width={19} />
         ))}
-      <Image source={emptyStar} height={19} width={19} />
+      {Array(5 - nrStars)
+        .fill(0)
+        .map(() => (
+          <Image source={emptyStar} height={19} width={19} />
+        ))}
       <Text style={Screen2Styles.nrVotes}>({votes})</Text>
     </View>
   );
 };
 
-const renderRooms = (nrBedrooms, nrBathrooms, nrKitchens) => (
-  <View
-    style={[
-      Screen2Styles.row,
-      {justifyContent: 'space-between', alignItems: 'center'},
-    ]}>
-    <View style={[Screen2Styles.row, {alignItems: 'center'}]}>
-      <Image source={bedrooms} style={Screen2Styles.roomIcon} />
-      <Text>{nrBedrooms}</Text>
-    </View>
-    <View style={[Screen2Styles.row, {alignItems: 'center'}]}>
-      <Image source={bathrooms} style={Screen2Styles.roomIcon} />
-      <Text>{nrBathrooms}</Text>
-    </View>
-    <View style={[Screen2Styles.row, {alignItems: 'center'}]}>
-      <Image source={kitchens} style={Screen2Styles.roomIcon} />
-      <Text>{nrKitchens}</Text>
-    </View>
-  </View>
-);
-
-const Screen2 = () => {
+const Screen2 = ({ navigation }) => {
   return (
     <SafeAreaView style={Screen2Styles.root}>
       <ScrollView style={Screen2Styles.rootScroll}>
-        <TouchableOpacity style={Screen2Styles.backButton}>
+        <TouchableOpacity style={Screen2Styles.backButton} onPress={() => navigation.goBack()}>
           <Image source={back} height={16} />
         </TouchableOpacity>
         <View style={Screen2Styles.userView}>
           <View style={Screen2Styles.userDetails}>
-            <Text style={Screen2Styles.nameText}>Eddie bremmer</Text>
-            <View>{renderStars(10)}</View>
-            <View style={[Screen2Styles.row, {width: 100}]}>
+            <Text style={Screen2Styles.nameText}>{currentUser.name}</Text>
+            <View>{renderStars(currentUser.stars, currentUser.reviews)}</View>
+            <View style={[Screen2Styles.row, { width: 100 }]}>
               <Image source={locationPin} height={20} />
-              <Text style={Screen2Styles.locationText}>Los Angeles</Text>
+              <Text style={Screen2Styles.locationText}>{currentUser.location}</Text>
             </View>
           </View>
-          <Image source={userPic} style={Screen2Styles.userImage} />
+          <Image source={currentUser.image} style={Screen2Styles.userImage} />
         </View>
         <View style={Screen2Styles.contentContainer}>
           <View style={Screen2Styles.findHomeView}>
-            <Text style={Screen2Styles.findHomeText}>FindHome Gold</Text>
+            <Text style={Screen2Styles.findHomeText}>{strings.findHomeGold}</Text>
             <ScrollView
               style={Screen2Styles.findHomeScrollView}
               horizontal={true}>
               <View style={Screen2Styles.findHomeCard}>
-                <Text style={Screen2Styles.findHomeCardTitle}>Estadistics</Text>
+                <Text style={Screen2Styles.findHomeCardTitle}>{strings.estadistics}</Text>
                 <View style={[Screen2Styles.row, Screen2Styles.spaceEvenly]}>
                   <Image
                     source={chart}
@@ -87,13 +159,13 @@ const Screen2 = () => {
                     style={Screen2Styles.chartIcon}
                   />
                   <View style={Screen2Styles.spaceEvenly}>
-                    <View style={[Screen2Styles.chartDataRow, {width: '50%'}]}>
+                    <View style={[Screen2Styles.chartDataRow, { width: '50%' }]}>
                       <Image
                         source={dollar}
                         height={16}
                         style={Screen2Styles.dollarIcon}
                       />
-                      <Text>10 sales Complete</Text>
+                      <Text>10 {strings.salesComplete}</Text>
                     </View>
                     <View style={Screen2Styles.chartDataRow}>
                       <Image
@@ -101,26 +173,22 @@ const Screen2 = () => {
                         height={16}
                         style={Screen2Styles.dollarIcon}
                       />
-                      <Text>09 clients</Text>
+                      <Text>09 {strings.clients}</Text>
                     </View>
                   </View>
                 </View>
                 <Text style={Screen2Styles.viewMoreInfoButton}>
-                  View more info
+                  {strings.moreInfo}
                 </Text>
               </View>
               <View style={Screen2Styles.findHomeCard}>
                 <View style={Screen2Styles.findHomeCardInner}>
                   <Text style={Screen2Styles.findHomeCardTitle}>
-                    Information
+                    {strings.information}
                   </Text>
                   <ScrollView>
                     <Text>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Risus condimentum nulla diam proin quis commodo malesuada.
-                      Dolor morbi egestas consectetur egestas aliquam tellus.
-                      Accumsan tristique consequat nec cras commodo et orci
-                      ipsum.
+                      {strings.loremIpsum}
                     </Text>
                   </ScrollView>
                 </View>
@@ -129,51 +197,10 @@ const Screen2 = () => {
           </View>
 
           <View style={Screen2Styles.postsContainer}>
-            <Text style={Screen2Styles.postText}>Post</Text>
-            {Array(4)
-              .fill(0)
-              .map(() => (
-                <ImageBackground
-                  imageStyle={Screen2Styles.cardImage}
-                  source={post1}
-                  style={Screen2Styles.cardContent}>
-                  <View style={Screen2Styles.cardLocation}>
-                    <Image source={locationPin} height={13} />
-                    <Text style={Screen2Styles.locationText}>
-                      Los Angeles, CA
-                    </Text>
-                  </View>
-                  <View style={Screen2Styles.cardDetailsContainer}>
-                    <Text style={Screen2Styles.cardDetailsTitle}>
-                      Special House mix
-                    </Text>
-                    <View
-                      style={[
-                        Screen2Styles.row,
-                        {justifyContent: 'space-between'},
-                      ]}>
-                      <View>
-                        <View
-                          style={[Screen2Styles.row, {alignItems: 'center'}]}>
-                          <Image
-                            source={userPic}
-                            style={Screen2Styles.cardDetailsUserPic}
-                          />
-                          <Text>Timmy bremor</Text>
-                        </View>
-                        {renderStars(10)}
-                      </View>
-                      <View>
-                        <View>
-                          <Text style={Screen2Styles.priceLabel}>
-                            $1500 usd
-                          </Text>
-                          {renderRooms(2, 1, 1)}
-                        </View>
-                      </View>
-                    </View>
-                  </View>
-                </ImageBackground>
+            <Text style={Screen2Styles.postText}>{strings.post}</Text>
+            {mockData
+              .map((item) => (
+                <Card key={item.name} item={item} />
               ))}
           </View>
         </View>
@@ -183,12 +210,12 @@ const Screen2 = () => {
 };
 
 const mapStateToProps = state => {
-  const {message, isFetchingToken} = state.login.loginReducer;
-  return {message, isFetchingToken};
+  const { message, isFetchingToken } = state.login.loginReducer;
+  return { message, isFetchingToken };
 };
 
 const mapDispatchToProps = dispatch => ({
-  login: () => dispatch({type: LOGIN_SAGA}),
+  login: () => dispatch({ type: LOGIN_SAGA }),
 });
 
 export default connect(

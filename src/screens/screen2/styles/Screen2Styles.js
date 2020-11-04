@@ -101,9 +101,6 @@ export default StyleSheet.create({
   spaceEvenly: {
     justifyContent: 'space-evenly',
   },
-  roomIcon: {
-    marginRight: metrics.size4,
-  },
   chartIcon: {
     marginLeft: metrics.size26,
   },
@@ -124,48 +121,7 @@ export default StyleSheet.create({
   findHomeCardInner: {
     padding: metrics.size17,
   },
-  cardImage: {
-    borderRadius: metrics.size20,
-  },
-  cardContent: {
-    height: metrics.size400,
-    justifyContent: 'space-between',
-    margin: metrics.size20,
-  },
-  cardLocation: {
-    height: metrics.size26,
-    backgroundColor: 'rgba(255, 255, 255, 0.66)',
-    borderRadius: metrics.size50,
-    width: metrics.size130,
-    margin: metrics.size26,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  cardDetailsContainer: {
-    width: '100%',
-    height: metrics.size103,
-    backgroundColor: 'white',
-    borderRadius: metrics.size20,
-    paddingVertical: metrics.size15,
-    paddingHorizontal: metrics.size27,
-  },
-  cardDetailsTitle: {
-    marginBottom: metrics.size9,
-    fontSize: metrics.size20,
-    color: colors.blueZodiac,
-  },
-  cardDetailsUserPic: {
-    borderRadius: metrics.size30,
-    height: metrics.size30,
-    width: metrics.size30,
-  },
-  priceLabel: {
-    fontSize: metrics.size20,
-    lineHeight: metrics.size24,
-    color: colors.blueZodiac,
-    fontWeight: '500',
-  },
+  
   postText: {
     fontSize: metrics.size20,
     lineHeight: metrics.size24,

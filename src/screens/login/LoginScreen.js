@@ -1,13 +1,23 @@
 import React, {useState} from 'react';
-import {View, Image, Text, SafeAreaView, ScrollView} from 'react-native';
+import {View, Image, Text, SafeAreaView, ScrollView, KeyboardAvoidingView, Platform} from 'react-native';
 import {connect} from 'react-redux';
 import {LOGIN_SAGA} from './redux';
 import {FieldInput} from '../../core/components';
 import {search, ok, see} from '../../core/themes';
 import {LoginScreenStyles} from './styles';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import {roots} from '../../navigation';
 
-const LoginScreen = () => {
+const ValidateEmail = (mail)=> 
+{
+ if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(.[a-zA-Z0-9-]+)*$/.test(mail))
+  {
+    return (true)
+  }
+    return (false)
+}
+
+const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [hidePassword, setHidePassword] = useState(true);
@@ -28,10 +38,11 @@ const LoginScreen = () => {
                 Login for enjoy findhome
               </Text>
             </View>
-            <View style={LoginScreenStyles.inputsContainer}>
+            <KeyboardAvoidingView
+                behavior={Platform.OS === "ios" ? "padding" : "height"} style={LoginScreenStyles.inputsContainer}>
               <FieldInput
                 onChangeValue={text => setEmail(text)}
-                image={email !== '' ? ok : ''}
+                image={ValidateEmail(email) ? ok : ''}
                 label={'Email'}
               />
               <FieldInput
@@ -42,7 +53,7 @@ const LoginScreen = () => {
                 secureTextEntry={hidePassword}
                 label={'Password'}
               />
-              <TouchableOpacity style={LoginScreenStyles.loginButton}>
+              <TouchableOpacity style={LoginScreenStyles.loginButton} onPress={()=>navigation.navigate(roots.screen2)}>
                 <Text style={LoginScreenStyles.loginButtonText}>Login</Text>
               </TouchableOpacity>
               <View style={LoginScreenStyles.footer}>
@@ -53,7 +64,7 @@ const LoginScreen = () => {
                   create new account
                 </Text>
               </View>
-            </View>
+            </KeyboardAvoidingView>
           </View>
         </View>
       </ScrollView>
