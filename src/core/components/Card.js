@@ -29,15 +29,15 @@ const renderRooms = (nrBedrooms, nrBathrooms, nrKitchens) => (
         ]}>
         <View style={[CardStyles.row, { alignItems: 'center' }]}>
             <Image source={bedrooms} style={CardStyles.roomIcon} />
-            <Text>{nrBedrooms}</Text>
+            <Text style={CardStyles.marginRightRooms}>{nrBedrooms}</Text>
         </View>
         <View style={[CardStyles.row, { alignItems: 'center' }]}>
             <Image source={bathrooms} style={CardStyles.roomIcon} />
-            <Text>{nrBathrooms}</Text>
+            <Text style={CardStyles.marginRightRooms}>{nrBathrooms}</Text>
         </View>
         <View style={[CardStyles.row, { alignItems: 'center' }]}>
             <Image source={kitchens} style={CardStyles.roomIcon} />
-            <Text>{nrKitchens}</Text>
+            <Text style={CardStyles.marginRightRooms}>{nrKitchens}</Text>
         </View>
     </View>
 );
