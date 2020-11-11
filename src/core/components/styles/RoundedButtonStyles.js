@@ -4,7 +4,7 @@ import {metrics, colors} from '../../themes/';
 export default StyleSheet.create({
   container: {
     height: metrics.size50,
-    backgroundColor: colors.shuttleGrey,
+    backgroundColor: colors.black,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: metrics.size25,
@@ -12,7 +12,7 @@ export default StyleSheet.create({
     width: '50%',
   },
   textStyle: {
-    color: colors.white,
+    color: colors.black,
     fontSize: metrics.size14,
     fontWeight: 'bold',
   },

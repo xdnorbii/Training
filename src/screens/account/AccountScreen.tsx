@@ -1,7 +1,5 @@
 import React, { } from 'react';
 import { View, Image, Text, SafeAreaView, ImageBackground } from 'react-native';
-import { connect } from 'react-redux';
-import { LOGIN_SAGA } from './redux';
 import {
   userPic,
   userPic2,
@@ -18,11 +16,15 @@ import {
   post2,
   post3,
   post4,
-  strings
 } from '../../core/themes';
-import { Screen2Styles } from './styles';
+import { strings } from '../../core/constants'
+import styles from './styles/styles';
 import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
-import Card from '../../core/components/Card';
+import { Card } from '../../core/components';
+import roots from '../../navigation/roots';
+import { Svg, Circle, Text as SVGText } from 'react-native-svg';
+import CircularProgress from '../../core/components/CircularProgress';
+
 
 const currentUser = {
   name: "Timmy bremor",
@@ -110,7 +112,7 @@ const mockData = [
 
 const renderStars = (nrStars, votes) => {
   return (
-    <View style={Screen2Styles.row}>
+    <View style={styles.row}>
       {Array(nrStars)
         .fill(0)
         .map(() => (
@@ -121,69 +123,65 @@ const renderStars = (nrStars, votes) => {
         .map(() => (
           <Image source={emptyStar} height={19} width={19} />
         ))}
-      <Text style={Screen2Styles.nrVotes}>({votes})</Text>
+      <Text style={styles.nrVotes}>({votes})</Text>
     </View>
   );
 };
 
-const Screen2 = ({ navigation }) => {
+const AccountScreen = ({ navigation }) => {
   return (
-    <SafeAreaView style={Screen2Styles.root}>
-      <ScrollView style={Screen2Styles.rootScroll}>
-        <TouchableOpacity style={Screen2Styles.backButton} onPress={() => navigation.goBack()}>
+    <SafeAreaView style={styles.root}>
+      <ScrollView style={styles.rootScroll}>
+        <TouchableOpacity style={styles.backButton} onPress={() => navigation.navigate(roots.loginFigma)}>
           <Image source={back} height={16} />
         </TouchableOpacity>
-        <View style={Screen2Styles.userView}>
-          <View style={Screen2Styles.userDetails}>
-            <Text style={Screen2Styles.nameText}>{currentUser.name}</Text>
+        <View style={styles.userView}>
+          <View style={styles.userDetails}>
+            <Text style={styles.nameText}>{currentUser.name}</Text>
             <View>{renderStars(currentUser.stars, currentUser.reviews)}</View>
-            <View style={[Screen2Styles.row, { width: 100 }]}>
+            <View style={[styles.row, { width: 100 }]}>
               <Image source={locationPin} height={20} />
-              <Text style={Screen2Styles.locationText}>{currentUser.location}</Text>
+              <Text style={styles.locationText}>{currentUser.location}</Text>
             </View>
           </View>
-          <Image source={currentUser.image} style={Screen2Styles.userImage} />
+          <Image source={currentUser.image} style={styles.userImage} />
         </View>
-        <View style={Screen2Styles.contentContainer}>
-          <View style={Screen2Styles.findHomeView}>
-            <Text style={Screen2Styles.findHomeText}>{strings.findHomeGold}</Text>
+        <View style={styles.contentContainer}>
+          <View style={styles.findHomeView}>
+            <Text style={styles.findHomeText}>{strings.findHomeGold}</Text>
             <ScrollView
-              style={Screen2Styles.findHomeScrollView}
+              style={styles.findHomeScrollView}
               horizontal={true}>
-              <View style={Screen2Styles.findHomeCard}>
-                <Text style={Screen2Styles.findHomeCardTitle}>{strings.estadistics}</Text>
-                <View style={[Screen2Styles.row, Screen2Styles.spaceEvenly]}>
-                  <Image
-                    source={chart}
-                    height={62}
-                    style={Screen2Styles.chartIcon}
-                  />
-                  <View style={Screen2Styles.spaceEvenly}>
-                    <View style={[Screen2Styles.chartDataRow, { width: '50%' }]}>
+              <View style={styles.findHomeCard}>
+                <Text style={styles.findHomeCardTitle}>{strings.estadistics}</Text>
+                <View style={[styles.row, styles.spaceEvenly]}>
+                  <CircularProgress size={60} strokeWidth={8} text1={'30'} text2={'level'} progressPercent={40} bgColor={'#F0F0F0'} pgColor={'#46D0D9'}/>
+                  <View style={styles.spaceEvenly}>
+                    <View style={[styles.chartDataRow, { width: '50%' }]}>
                       <Image
                         source={dollar}
                         height={16}
-                        style={Screen2Styles.dollarIcon}
+                        style={styles.dollarIcon}
                       />
                       <Text>10 {strings.salesComplete}</Text>
                     </View>
-                    <View style={Screen2Styles.chartDataRow}>
+                    <View style={styles.chartDataRow}>
                       <Image
                         source={client}
                         height={16}
-                        style={Screen2Styles.dollarIcon}
+                        style={styles.dollarIcon}
                       />
                       <Text>09 {strings.clients}</Text>
                     </View>
                   </View>
                 </View>
-                <Text style={Screen2Styles.viewMoreInfoButton}>
+                <Text style={styles.viewMoreInfoButton}>
                   {strings.moreInfo}
                 </Text>
               </View>
-              <View style={Screen2Styles.findHomeCard}>
-                <View style={Screen2Styles.findHomeCardInner}>
-                  <Text style={Screen2Styles.findHomeCardTitle}>
+              <View style={styles.findHomeCard}>
+                <View style={styles.findHomeCardInner}>
+                  <Text style={styles.findHomeCardTitle}>
                     {strings.information}
                   </Text>
                   <ScrollView>
@@ -196,8 +194,8 @@ const Screen2 = ({ navigation }) => {
             </ScrollView>
           </View>
 
-          <View style={Screen2Styles.postsContainer}>
-            <Text style={Screen2Styles.postText}>{strings.post}</Text>
+          <View style={styles.postsContainer}>
+            <Text style={styles.postText}>{strings.post}</Text>
             {mockData
               .map((item) => (
                 <Card key={item.name} item={item} />
@@ -209,16 +207,5 @@ const Screen2 = ({ navigation }) => {
   );
 };
 
-const mapStateToProps = state => {
-  const { message, isFetchingToken } = state.login.loginReducer;
-  return { message, isFetchingToken };
-};
 
-const mapDispatchToProps = dispatch => ({
-  login: () => dispatch({ type: LOGIN_SAGA }),
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Screen2);
+export default AccountScreen;

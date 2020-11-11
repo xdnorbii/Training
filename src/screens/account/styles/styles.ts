@@ -67,7 +67,7 @@ export default StyleSheet.create({
   findHomeText: {
     fontSize: metrics.size20,
     lineHeight: metrics.size24,
-    fontWeight: '500',
+    fontWeight: 'bold',
     color: colors.blueZodiac,
   },
   findHomeScrollView: {
@@ -84,7 +84,7 @@ export default StyleSheet.create({
       width: metrics.size0,
       height: metrics.size1,
     },
-    shadowOpacity: 0.2,
+    shadowOpacity: metrics.size0_2,
     shadowRadius: 1.41,
     elevation: metrics.size2,
     marginRight: metrics.size15,
@@ -95,7 +95,7 @@ export default StyleSheet.create({
     marginBottom: metrics.size8,
     fontSize: metrics.size12,
     lineHeight: metrics.size14,
-    fontWeight: '500',
+    fontWeight: 'bold',
     color: colors.blueZodiac,
   },
   spaceEvenly: {
@@ -121,11 +121,11 @@ export default StyleSheet.create({
   findHomeCardInner: {
     padding: metrics.size17,
   },
-  
+
   postText: {
     fontSize: metrics.size20,
     lineHeight: metrics.size24,
-    fontWeight: '500',
+    fontWeight: 'bold',
     color: colors.blueZodiac,
     marginLeft: metrics.size20,
   },

@@ -1,41 +1,53 @@
 import React from 'react';
-import {View, Text, TextInput, TouchableOpacity, Image} from 'react-native';
+import {View, TextInput, TouchableOpacity} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import {FieldInputStyles} from './styles';
-import {colors} from '../themes';
+import {colors, metrics} from '../themes';
 
 const FieldInput = ({
   placeholder,
   value,
   onChangeValue,
+  leftIconName,
+  rightIconName,
   secureTextEntry,
   textContentType,
   autoCapitalize,
   autoCorrect,
   autoCompleteType,
   onPressRightIcon,
-  image,
-  label,
+  iconColor,
+  placeholderColor
 }) => {
   return (
-    <View style={FieldInputStyles.root}>
-      <Text style={FieldInputStyles.label}>{label}</Text>
-      <View style={FieldInputStyles.container}>
-        <TextInput
-          onChangeText={onChangeValue}
-          value={value}
-          placeholder={placeholder}
-          placeholderTextColor={colors.black}
-          secureTextEntry={secureTextEntry}
-          textContentType={textContentType}
-          style={FieldInputStyles.textStyle}
-          autoCapitalize={autoCapitalize}
-          autoCorrect={autoCorrect}
-          autoCompleteType={autoCompleteType}
+    <View style={FieldInputStyles.container}>
+      
+      <Icon
+        name={leftIconName}
+        color={iconColor}
+        size={metrics.size20}
+        style={FieldInputStyles.iconStyle}
+      />
+      <TextInput
+        onChangeValue={onChangeValue}
+        value={value}
+        placeholder={placeholder}
+        placeholderTextColor={placeholderColor}
+        secureTextEntry={secureTextEntry}
+        textContentType={textContentType}
+        style={FieldInputStyles.textStyle}
+        autoCapitalize={autoCapitalize}
+        autoCorrect={autoCorrect}
+        autoCompleteType={autoCompleteType}
+      />
+      <TouchableOpacity onPress={onPressRightIcon}>
+        <Icon
+          name={rightIconName}
+          color={iconColor}
+          size={metrics.size20}
+          style={FieldInputStyles.iconStyle}
         />
-        <TouchableOpacity onPress={onPressRightIcon}>
-          <Image source={image} style={FieldInputStyles.iconStyle} />
-        </TouchableOpacity>
-      </View>
+      </TouchableOpacity>
     </View>
   );
 };

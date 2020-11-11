@@ -1,6 +1,8 @@
 const roots = {
-  loginScreen: 'LoginScreen',
-  screen2: 'Screen2',
+  loginFigma: 'LoginFigma',
+  roomScreen: 'RoomScreen',
+  accountScreen: 'AccountScreen',
+  homeFigma: 'HomeFigma'
 };
 
 export default roots;

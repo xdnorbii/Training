@@ -24,7 +24,7 @@ export default StyleSheet.create({
     },
     locationText: {
         fontSize: metrics.size11,
-        fontWeight: '300',
+        fontWeight: 'bold',
         lineHeight: metrics.size13,
         color: colors.chathamsBlue,
         marginLeft: metrics.size4,
@@ -61,7 +61,8 @@ export default StyleSheet.create({
         fontSize: metrics.size20,
         lineHeight: metrics.size24,
         color: colors.blueZodiac,
-        fontWeight: '500',
+        fontWeight: 'bold',
+        marginRight: metrics.size35,
     },
     marginRightRooms: {
         marginRight: metrics.size16

@@ -72,14 +72,14 @@ const Card = ({
                                 source={item.user.image}
                                 style={CardStyles.cardDetailsUserPic}
                             />
-                            <Text>{item.user.name}</Text>
+                            <Text style={{marginLeft: 6}}>{item.user.name}</Text>
                         </View>
                         {renderStars(item.user.stars, item.reviews)}
                     </View>
                     <View>
-                        <View>
+                        <View style={{alignItems: 'flex-end'}}>
                             <Text style={CardStyles.priceLabel}>
-                                {item.price}
+                                {item.price} usd
                             </Text>
                             {renderRooms(item.rooms.bedrooms, item.rooms.bathrooms, item.rooms.kitchens)}
                         </View>
